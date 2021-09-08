@@ -11,6 +11,7 @@ CA_CERT="shared/tls/ca-certificate.cert"
 openssl genrsa -des3 -out "${CA_KEY}" 2048
 
 ## generate CA root cert (this will be shared with clients)
+## DO NOT ANSWER localhost for common name! - https://stackoverflow.com/a/23715832
 openssl req -x509 -new -nodes -key "${CA_KEY}" \
     -sha256 -days 365 -out "${CA_CERT}"
 
