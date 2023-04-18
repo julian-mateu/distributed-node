@@ -12,6 +12,8 @@ openssl genrsa -des3 -out "${CA_KEY}" 2048
 
 ## generate CA root cert (this will be shared with clients)
 ## DO NOT ANSWER localhost for common name! - https://stackoverflow.com/a/23715832
+read -r -p 'DO NOT ANSWER localhost for the common name in the following command. Press enter key to continue'
+
 openssl req -x509 -new -nodes -key "${CA_KEY}" \
     -sha256 -days 365 -out "${CA_CERT}"
 
@@ -25,6 +27,7 @@ system_name="producer"
 openssl genrsa -out "${key_dir}/${system_name}-private-key.key" 2048
 
 ## generate CSR (certificate sign request) for the service (answer localhost for common name)
+read -r -p 'Answer localhost for the common name in the following command. Press enter key to continue'
 openssl req -new -key "${key_dir}/${system_name}-private-key.key" \
     -out "${key_dir}/${system_name}.csr"
 
