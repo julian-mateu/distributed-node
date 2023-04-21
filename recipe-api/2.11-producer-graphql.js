@@ -4,7 +4,7 @@
 const server = require('fastify')();
 const graphql = require('fastify-gql');
 const fs = require('fs');
-const schema = fs.readFileSync(__dirname + '/../shared/graphql-schema.gql').toString();
+const schema = fs.readFileSync(__dirname + '/../shared/2.10-graphql-schema.gql').toString();
 const HOST = process.env.HOST || '127.0.0.1';
 const PORT = process.env.PORT || 4000;
 

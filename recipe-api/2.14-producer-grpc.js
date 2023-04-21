@@ -3,7 +3,7 @@
 // npm install @grpc/grpc-js@1.1 @grpc/proto-loader@0.5
 const grpc = require('@grpc/grpc-js');
 const loader = require('@grpc/proto-loader');
-const pkg_def = loader.loadSync(__dirname + '/../shared/grpc-recipe.proto');
+const pkg_def = loader.loadSync(__dirname + '/../shared/2.13-grpc-recipe.proto');
 const recipe = grpc.loadPackageDefinition(pkg_def).recipe;
 const HOST = process.env.HOST || '127.0.0.1';
 const PORT = process.env.PORT || 4000;
