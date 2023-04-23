@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  distnode-graphite:
+    image: graphiteapp/graphite-statsd:1.1.6-1
+    ports:
+      - 8080:80
+      - 8125:8125/udp
+  distnode-grafana:
+    image: grafana/grafana:6.5.2
+    ports:
+      - 8000:3000
