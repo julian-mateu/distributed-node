@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  my-running-haproxy:
+    image: haproxy:2.3
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/usr/local/etc/haproxy:ro
+    sysctls:
+      - net.ipv4.ip_unprivileged_port_start=0 
+    command: haproxy -f /usr/local/etc/haproxy/haproxy.cfg
