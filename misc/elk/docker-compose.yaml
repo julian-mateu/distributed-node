@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  elk:
+    image: sebp/elk:683
+    ports:
+      - 5601:5601
+      - 9200:9200
+      - 5044:5044
+      - 7777:7777/udp
+    volumes:
+      - ./udp.conf:/etc/logstash/conf.d/99-input-udp.conf
+    environment:
+      - MAX_MAP_COUNT=262144
